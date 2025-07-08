@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "homepage": "https://github.com/Arpit-mandhan-001/Doomed-Letters"
+    "homepage": "https://github.com/Arpit-mandhan-001/Doomed-Letters",
+    "deploy": "gh-pages -d dist"
+
   },
   "dependencies": {
     "react": "^19.1.0",
