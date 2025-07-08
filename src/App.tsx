@@ -14,7 +14,6 @@ const App: React.FC = () => {
   const [wordObj, setWordObj] = useState(
     wordList[Math.floor(Math.random() * 850)]
   );
-  console.log("length of wordList is :", wordList.length);
   const [charLeft, setCharLeft] = useState(wordObj.word.split(""));
   const isWinner = !charLeft.length;
   const isGameOver = !attempts;
@@ -37,7 +36,6 @@ const App: React.FC = () => {
   }
 
   useEffect(() => {
-    console.log("wordObj useEffect hook");
     setKeyBoardKey((prev) => prev + 1);
     setCorrectGuess([]);
     setInCorrectGuess([]);
@@ -45,7 +43,6 @@ const App: React.FC = () => {
   }, [wordObj]);
 
   useEffect(() => {
-    console.log("useEffect hook of userInput");
     if (userInput) charLeft.length && attempts && handleUserInput(userInput);
   }, [userInput]);
 
@@ -123,7 +120,7 @@ const App: React.FC = () => {
         </section>
         <footer>
             Made by &nbsp;
-        <a href="https://www.linkedin.com/in/arpit-mandhan-21374b367/">Arpit Mandhan</a>
+        <a href="https://github.com/Arpit-mandhan-001">Arpit Mandhan</a>
         </footer>
       </main>
     </>
