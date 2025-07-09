@@ -6,21 +6,21 @@ import Hangman from "./components/Hangman";
 import RandomRoastLine from "./components/RandomRoastLines";
 
 const App: React.FC = () => {
-  const [keyBoardKey, setKeyBoardKey] = useState<number>(1);
-  const [userInput, setUserInput] = useState<string | null>();
-  const [correctGuess, setCorrectGuess] = useState<string[]>([]);
-  const [inCorrectGuess, setInCorrectGuess] = useState<string[]>([]);
-  const attempts = 7 - inCorrectGuess.length;
+  const [keyBoardKey, setKeyBoardKey] = useState<number>(1); // track the current key or key press.
+  const [userInput, setUserInput] = useState<string | null>(null); //Stores the current guess input by user.
+  const [correctGuess, setCorrectGuess] = useState<string[]>([]); // stores the array of all correct guess.
+  const [inCorrectGuess, setInCorrectGuess] = useState<string[]>([]); // stores the array of all incorrect guess.
+  const attempts = 7 - inCorrectGuess.length; // total attempts left.
   const [wordObj, setWordObj] = useState(
     wordList[Math.floor(Math.random() * 850)]
-  );
-  const [charLeft, setCharLeft] = useState(wordObj.word.split(""));
-  const isWinner = !charLeft.length;
-  const isGameOver = !attempts;
-  const [hintReveal, setHintReveal] = useState(false);
+  ); // word that user have to guess.
+  const [charLeft, setCharLeft] = useState(wordObj.word.split("")); // track the reamining character in the word that need to be guessed.
+  const isWinner = !charLeft.length; // check if player has won
+  const isGameOver = !attempts; // check if game is over, if no attempts left.
+  const [hintReveal, setHintReveal] = useState(false); // hint toggle.
 
   function handleRefresh() {
-    setWordObj(wordList[Math.floor(Math.random() * 850)]);
+    setWordObj(wordList[Math.floor(Math.random() * wordList.length)]);
   }
 
   function handleUserInput(input: string) {
@@ -114,13 +114,13 @@ const App: React.FC = () => {
               ></Keyboard>
             </div>
           </div>
-          <div className="'drawing-container">
+          <div className="drawing-container">
             <Hangman attempts={attempts} />
           </div>
         </section>
         <footer>
-            Made by &nbsp;
-        <a href="https://github.com/Arpit-mandhan-001">Arpit Mandhan</a>
+          Made by &nbsp;
+          <a href="https://github.com/Arpit-mandhan-001">Arpit Mandhan</a>
         </footer>
       </main>
     </>

@@ -23,7 +23,7 @@ const Hangman: React.FC<hangmanProps> = ({ attempts }) => {
           strokeWidth="8"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="'sketchy-line"
+          className="sketchy-line"
         />
 
         <path
